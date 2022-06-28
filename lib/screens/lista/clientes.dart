@@ -19,7 +19,7 @@ class ListaDeClientesState extends State<ListaDeClientes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_tituloAppBar),
+        title: const Text(_tituloAppBar),
       ),
       body: ListView.builder(
         itemCount: widget._clientes.length,
@@ -29,7 +29,7 @@ class ListaDeClientesState extends State<ListaDeClientes> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return FormularioCliente();
@@ -59,9 +59,12 @@ class ItemCliente extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: ListTile(
-          leading: Icon(Icons.people),
+          leading: const Icon(Icons.people),
           title: Text(_cliente.nome),
-          subtitle: Text(_cliente.id.toString()),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 3),
+            child: Text('CPF: ${_cliente.cpf}'),
+          ),
         ));
   }
 }

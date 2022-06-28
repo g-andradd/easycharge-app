@@ -8,8 +8,8 @@ const _tituloAppBar = 'Cadastro de Cliente';
 const _rotuloCampoNome = 'Nome';
 const _dicaCampoNome = 'Nome Completo';
 
-const _rotuloCampoId = 'ID';
-const _dicaCampoId = '0';
+const _rotuloCampoId = 'CPF';
+const _dicaCampoId = '000.000.000-00';
 
 const _textoBotaoConfirmar = 'Confirmar';
 
@@ -23,8 +23,6 @@ class FormularioCliente extends StatefulWidget {
 class FormularioClienteState extends State<FormularioCliente> {
   final TextEditingController _controladorCampoNome = TextEditingController();
   final TextEditingController _controladorCampoId = TextEditingController();
-  final ButtonStyle style =
-      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
   @override
   Widget build(BuildContext context) {
@@ -35,25 +33,32 @@ class FormularioClienteState extends State<FormularioCliente> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Editor(
-                controlador: _controladorCampoNome,
-                dica: _dicaCampoNome,
-                rotulo: _rotuloCampoNome,
-                icone: Icons.person,
-                inputType: TextInputType.name,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Editor(
+                  controlador: _controladorCampoNome,
+                  dica: _dicaCampoNome,
+                  rotulo: _rotuloCampoNome,
+                  inputType: TextInputType.name,
+                ),
               ),
-              Editor(
-                dica: _dicaCampoId,
-                controlador: _controladorCampoId,
-                rotulo: _rotuloCampoId,
-                icone: Icons.numbers,
-                inputType: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Editor(
+                  dica: _dicaCampoId,
+                  controlador: _controladorCampoId,
+                  rotulo: _rotuloCampoId,
+                  inputType: TextInputType.number,
+                ),
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () => _criaCliente(context),
-                child: const Text(_textoBotaoConfirmar),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 40.0, horizontal: 16.0),
+                child: ElevatedButton(
+                  onPressed: () => _criaCliente(context),
+                  child: const Text(_textoBotaoConfirmar),
+                ),
               ),
             ],
           ),
@@ -62,9 +67,9 @@ class FormularioClienteState extends State<FormularioCliente> {
 
   void _criaCliente(BuildContext context) {
     final String nome = _controladorCampoNome.text;
-    final int? id = int.tryParse(_controladorCampoId.text);
-    if (nome.isNotEmpty && id != null) {
-      final clienteCriado = Cliente(nome, id);
+    final String cpf = _controladorCampoId.text;
+    if (nome.isNotEmpty && cpf.isNotEmpty) {
+      final clienteCriado = Cliente(nome, cpf);
       Navigator.pop(context, clienteCriado);
     }
   }
