@@ -19,25 +19,32 @@ class ListaDeClientesState extends State<ListaDeClientes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_tituloAppBar),
+        title: const Text(_tituloAppBar),
       ),
-      body: ListView.builder(
-        itemCount: widget._clientes.length,
-        itemBuilder: (context, indice) {
-          final cliente = widget._clientes[indice];
-          return ItemCliente(cliente);
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(24),
+        child: ListView.separated(
+          shrinkWrap: true,
+          itemCount: widget._clientes.length,
+          itemBuilder: (context, indice) {
+            final cliente = widget._clientes[indice];
+            return ItemCliente(cliente);
+          },
+          separatorBuilder: (BuildContext context, int index) =>
+              const Divider(),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return FormularioCliente();
           })).then(
-                (clienteRecebido) => _atualiza(clienteRecebido),
+            (clienteRecebido) => _atualiza(clienteRecebido),
           );
         },
       ),
+      backgroundColor: Theme.of(context).secondaryHeaderColor,
     );
   }
 
@@ -59,9 +66,12 @@ class ItemCliente extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         child: ListTile(
-          leading: Icon(Icons.people),
-          title: Text(_cliente.nome),
-          subtitle: Text(_cliente.id.toString()),
-        ));
+      leading: const Icon(Icons.people),
+      title: Text(_cliente.nome),
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 3),
+        child: Text('CPF: ${_cliente.cpf}'),
+      ),
+    ));
   }
 }

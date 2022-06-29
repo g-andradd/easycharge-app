@@ -1,6 +1,6 @@
 class Cliente {
   final String nome;
-  final int id;
+  final String cpf;
 
-  Cliente(this.nome, this.id);
+  Cliente(this.nome, this.cpf);
 }

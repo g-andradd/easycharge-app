@@ -7,9 +7,16 @@ class EasychargeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.grey[700],
-      ),
+          primaryColor: Colors.grey[900],
+          appBarTheme: AppBarTheme(color: Colors.grey[900]),
+          buttonTheme: ButtonThemeData(
+            buttonColor: Colors.grey[900],
+            textTheme: ButtonTextTheme.primary,
+          ),
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.blueGrey[700])),
       home: ListaDeClientes(),
     );
   }
