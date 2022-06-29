@@ -1,4 +1,4 @@
-import 'package:easycharge_mobile/screens/autenticacao/login.dart';
+import 'package:easycharge_mobile/screens/lista/clientes.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(EasychargeApp());
@@ -17,7 +17,7 @@ class EasychargeApp extends StatelessWidget {
           ),
           colorScheme:
               ColorScheme.fromSwatch().copyWith(secondary: Colors.blueGrey[700])),
-      home: Login(),
+      home: ListaDeClientes(),
     );
   }
 }
