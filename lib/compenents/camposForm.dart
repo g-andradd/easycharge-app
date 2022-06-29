@@ -16,9 +16,7 @@ class CampoForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: TextFormField(
+    return TextFormField(
           controller: controlador,
           style: const TextStyle(fontSize: 20.0),
           decoration: InputDecoration(
@@ -29,7 +27,6 @@ class CampoForm extends StatelessWidget {
           inputFormatters: formatos,
           validator: validacao,
           keyboardType: inputType,
-      ),
     );
   }
 }
