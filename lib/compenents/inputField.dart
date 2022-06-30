@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CampoForm extends StatelessWidget {
+class InputField extends StatelessWidget {
   final TextEditingController controlador;
   final String rotulo;
   final String dica;
@@ -11,8 +11,8 @@ class CampoForm extends StatelessWidget {
   final TextInputType inputType;
 
 
-  CampoForm(
-      {required this.controlador, required this.rotulo, required this.dica, this.tamanhoMaximo, this.formatos, this.validacao, required this.inputType});
+  const InputField(
+      {Key? key, required this.controlador, required this.rotulo, required this.dica, this.tamanhoMaximo, this.formatos, this.validacao, required this.inputType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
