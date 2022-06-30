@@ -1,7 +1,20 @@
-import 'package:easycharge_mobile/screens/lista/clientes.dart';
+import 'package:easycharge_mobile/models/cliente.dart';
+import 'package:easycharge_mobile/models/listaDeClientes.dart';
+import 'package:easycharge_mobile/screens/cliente/listagem.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(EasychargeApp());
+void main() => runApp(MultiProvider(
+  providers: [
+    ChangeNotifierProvider(
+        create: (context) => ListaDeClientes()
+    ),
+    ChangeNotifierProvider(
+        create: (context) => Cliente.vazio()
+    ),
+  ],
+  child: EasychargeApp(),
+));
 
 class EasychargeApp extends StatelessWidget {
   @override
@@ -17,7 +30,7 @@ class EasychargeApp extends StatelessWidget {
           ),
           colorScheme:
               ColorScheme.fromSwatch().copyWith(secondary: Colors.blueGrey[700])),
-      home: ListaDeClientes(),
+      home: ListagemDeClientes(),
     );
   }
 }
