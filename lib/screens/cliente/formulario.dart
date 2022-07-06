@@ -40,52 +40,6 @@ class FormularioClienteState extends State<FormularioCliente> {
     );
   }
 
-  // void _criaCliente(BuildContext context) {
-  //   final String nome = _nomeController.text;
-  //   final String cpf = _cpfController.text;
-  //   final String telefone = _telefoneController.text;
-  //   final String email = _emailController.text;
-  //   final String rua = _ruaController.text;
-  //   final String numero = _numeroController.text;
-  //   final String complemento = _complementoController.text;
-  //   final String bairro = _bairroController.text;
-  //   final String cidade = _cidadeController.text;
-  //   final String estado = _estadoController.text;
-  //   final String profissao = _profissaoController.text;
-  //   final double? renda =
-  //   final String status = _statusController.text;
-  //
-  //   if (_formDadoskey.currentState!.validate()) {
-  //     Cliente clienteCriado = Cliente(
-  //       nome,
-  //       cpf,
-  //       telefone,
-  //       email,
-  //       rua,
-  //       numero,
-  //       bairro,
-  //       cidade,
-  //       estado,
-  //       profissao,
-  //       renda!,
-  //       status,
-  //     );
-  //     if (complemento.isNotEmpty) {
-  //       clienteCriado.complemento = complemento;
-  //     }
-  //     ListaDeClientesState listaClientes =
-  //     Provider.of<ListaDeClientesState>(context, listen: false);
-  //     listaClientes.adicionaCliente(clienteCriado);
-  //
-  //     Navigator.pop(context);
-  //   } else {
-  //     exibirAlerta(
-  //         context: context,
-  //         titulo: 'Alerta!',
-  //         content: 'Erro ao cadastrar o cliente.');
-  //   }
-  // }
-
   Widget _construirFormulario(context) {
     return Consumer<WizardCadastroDeClienteState>(
       builder: (context, wizardState, child) {
