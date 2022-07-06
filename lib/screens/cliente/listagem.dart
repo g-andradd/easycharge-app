@@ -1,4 +1,4 @@
-import 'package:easycharge_mobile/models/listaDeClientes.dart';
+import 'package:easycharge_mobile/state/listaDeClientesState.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +25,7 @@ class ListagemDeClientesState extends State<ListagemDeClientes> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24),
-        child: Consumer<ListaDeClientes>(
+        child: Consumer<ListaDeClientesState>(
             builder: (context, listaDeClientes, child) {
           List<Cliente> todosOsClientes = listaDeClientes.getClientes();
           return ListView.separated(
