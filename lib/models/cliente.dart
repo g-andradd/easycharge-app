@@ -1,19 +1,22 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class Cliente extends ChangeNotifier {
-  late String _nome;
-  late String _cpf;
-  late String _telefone;
-  late String _email;
-  late String _rua;
-  late String _numero;
+  late Long _id;
+  String _nome;
+  String _cpf;
+  String _telefone;
+  String _email;
+  String _rua;
+  String _numero;
   late String _complemento;
-  late String _bairro;
-  late String _cidade;
-  late String _estado;
-  late String _profissao;
-  late double _renda;
-  late String _status;
+  String _bairro;
+  String _cidade;
+  String _estado;
+  String _profissao;
+  double _renda;
+  String _status;
 
   Cliente(
     this._nome,
@@ -30,7 +33,8 @@ class Cliente extends ChangeNotifier {
     this._status,
   );
 
-  Cliente.vazio();
+
+  Long get id => _id;
 
   String get status => _status;
 
@@ -82,7 +86,7 @@ class Cliente extends ChangeNotifier {
 
   String get complemento => _complemento;
 
-  setComplemento(String value) {
+  set complemento(String value) {
     _complemento = value;
 
     notifyListeners();
@@ -132,17 +136,6 @@ class Cliente extends ChangeNotifier {
 
   set nome(String value) {
     _nome = value;
-
-    notifyListeners();
-  }
-
-  //tela de cadastro de clientes
-  int _stepAtual = 0;
-
-  int get stepAtual => _stepAtual;
-
-  set stepAtual(int value) {
-    _stepAtual = value;
 
     notifyListeners();
   }

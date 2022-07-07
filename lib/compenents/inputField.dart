@@ -16,17 +16,20 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-          controller: controlador,
-          style: const TextStyle(fontSize: 20.0),
-          decoration: InputDecoration(
-            labelText: rotulo,
-            hintText: dica,
-          ),
-          maxLength: tamanhoMaximo,
-          inputFormatters: formatos,
-          validator: validacao,
-          keyboardType: inputType,
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: TextFormField(
+            controller: controlador,
+            style: const TextStyle(fontSize: 20.0),
+            decoration: InputDecoration(
+              labelText: rotulo,
+              hintText: dica,
+            ),
+            maxLength: tamanhoMaximo,
+            inputFormatters: formatos,
+            validator: validacao,
+            keyboardType: inputType,
+      ),
     );
   }
 }
