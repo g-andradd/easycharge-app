@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class Cliente extends ChangeNotifier {
+  late Long _id;
   String _nome;
   String _cpf;
   String _telefone;
@@ -29,6 +32,9 @@ class Cliente extends ChangeNotifier {
     this._renda,
     this._status,
   );
+
+
+  Long get id => _id;
 
   String get status => _status;
 

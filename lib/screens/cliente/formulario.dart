@@ -61,11 +61,11 @@ class FormularioClienteState extends State<FormularioCliente> {
           },
           steps: [
             Step(
-              title: const Text('Dados do Cliente'),
+              title: const Text('Dados do Cliente', style: TextStyle(fontSize: 20),),
               content: stepDados,
             ),
             Step(
-              title: const Text('Endereco'),
+              title: const Text('Endereco', style: TextStyle(fontSize: 20),),
               content: stepEndereco,
             ),
           ],
