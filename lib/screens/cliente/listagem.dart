@@ -1,4 +1,4 @@
-import 'package:easycharge_mobile/state/listaDeClientesState.dart';
+import 'package:easycharge_mobile/state/lista_clientes_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
