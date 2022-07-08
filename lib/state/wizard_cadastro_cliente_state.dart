@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/cliente.dart';
 
 class WizardCadastroDeClienteState extends ChangeNotifier {
+  int _id = 0;
   String _nome = '';
   String _cpf = '';
   String _telefone = '';
@@ -32,6 +33,13 @@ class WizardCadastroDeClienteState extends ChangeNotifier {
       _passoAtual -= 1;
       notifyListeners();
     }
+  }
+
+
+  int get id => _id;
+
+  set id(int value) {
+    _id = value;
   }
 
   int get quantidadeDeEtapas => _quantidadeDeEtapas;
@@ -115,12 +123,12 @@ class WizardCadastroDeClienteState extends ChangeNotifier {
   }
 
   Cliente criaCliente() {
-    Cliente cliente = Cliente(_nome, _cpf, _telefone, _email, _rua,
+    Cliente cliente = Cliente(_id, _nome, _cpf, _telefone, _email, _rua,
       _numero, _bairro, _cidade, _estado, _profissao, _renda, _status,);
     if(_complemento.isNotEmpty){
       cliente.complemento = _complemento;
     }
-
+    _id = 0;
     _cpf = '';
     _nome = '';
     _telefone = '';
