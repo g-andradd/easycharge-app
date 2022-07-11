@@ -46,10 +46,10 @@ class FormularioClienteState extends State<FormularioCliente> {
             if (wizardState.passoAtual > 0) {
               wizardState.volta();
             }
-            // if (wizardState.passoAtual == 0) {
-            // print(wizardState.passoAtual);
-            //   Navigator.of(context).pop();
-            // }
+            else if (wizardState.passoAtual == 0) {
+            print(wizardState.passoAtual);
+              Navigator.of(context).pop();
+            }
           },
           steps: [
             Step(
