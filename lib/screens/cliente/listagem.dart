@@ -28,6 +28,7 @@ class ListagemDeClientes extends StatelessWidget {
             case ConnectionState.done:
               if(snapshot.hasData){
                 final List<ClienteJson> clientes = snapshot.requireData;
+                debugPrint('Passou por aqui $clientes');
                 if (clientes.isNotEmpty) {
                   return Padding(
                     padding: const EdgeInsets.all(24),

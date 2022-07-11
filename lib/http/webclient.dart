@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:http_interceptor/http_interceptor.dart';
 
+import '../models/cliente.dart';
 import '../state/cliente_json_state.dart';
 
 class LoggingInterceptor implements InterceptorContract {
@@ -26,16 +27,18 @@ class LoggingInterceptor implements InterceptorContract {
   }
 }
 
+final Client client = InterceptedClient.build(
+  interceptors: [LoggingInterceptor()],
+);
+
+const String baseUrl = 'http://192.168.1.7:8080/api/listaClientes';
+
 Future<List<ClienteJson>> findAll() async {
-  final Client client = InterceptedClient.build(
-    interceptors: [LoggingInterceptor()],
-  );
-  final Response response =
-      await client.get(Uri.parse('http://192.168.1.7:8080/api/listaClientes'));
+  final Response response = await client.get(Uri.parse(baseUrl));
   final List<dynamic> decodedJson = jsonDecode(response.body);
   final List<ClienteJson> clientes = [];
   for (Map<String, dynamic> clienteJson in decodedJson) {
-    ClienteJson(
+    ClienteJson cliente = ClienteJson(
       clienteJson['id'],
       clienteJson['nome'],
       clienteJson['cpf'],
@@ -44,6 +47,19 @@ Future<List<ClienteJson>> findAll() async {
       clienteJson['renda'],
       clienteJson['status'],
     );
+    clientes.add(cliente);
   }
   return clientes;
+}
+
+void save(Cliente cliente) {
+  final Map<String, dynamic> clienteMap = {
+    'value' : cliente.
+  };
+  jsonEncode(object)
+
+  client.post(Uri.parse(baseUrl), headers: {
+    'Content-type': 'application/json',
+    'password': '1000',
+  }, body: );
 }
